@@ -1,0 +1,12 @@
+History.txt
+Manifest.txt
+PostInstall.txt
+README.rdoc
+Rakefile
+lib/scbi_plot.rb
+script/console
+script/destroy
+script/generate
+test/test_helper.rb
+test/test_scbi_plot.rb
+lib/scbi_plot/plot.rb
