@@ -1,3 +1,7 @@
+=== 0.0.4 2011-05-31
+
+Fixed vertical lines
+
 === 0.0.1 2011-04-07
 
 * Initial release
