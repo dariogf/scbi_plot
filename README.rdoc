@@ -1,32 +1,83 @@
 = scbi_plot
 
-* http://github.com/#{github_username}/#{project_name}
+* http://www.scbi.uma.es/downloads
 
 == DESCRIPTION:
 
-FIX (describe your package)
+scbi_plot is a simplified wrapper to create plots with gnuplot.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* Create histogram plots with numeric or string x axis
+* Create line and related plots (linespoints, points, impulses, etc...)
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+=== Histogram plot:
+
+  # create Histogram
+  p=ScbiPlot::Histogram.new('with_string_axis.png','title')
+
+  # add x axis data
+  p.add_x(['a','b','c'])
+
+  # add y axis data
+  p.add_y([10,20,30])
+
+  # generate graph
+  p.do_graph
+
+=== Line plot:
+
+# Create lines plot
+p=ScbiPlot::Lines.new('lines.png','title')
+
+# create some random data
+x=[]
+y1=[]
+y2=[]
+y3=[]
+
+10.times do |i|
+  x.push i*10
+  y1.push i+(rand*50).to_i
+  y2.push i+(rand*50).to_i
+  y3.push i+(rand*50).to_i
+end
+
+
+# add x data
+p.add_x(x)
+
+# add a series
+p.add_series('serie0', y1)
+
+# draw another series with points
+p.add_series('serie1', y2, 'points')
+
+# add a third series with impulses of width 4
+p.add_series('serie2', y3,'impulses',4)
+
+# add a vertical line at pos 5
+p.add_vertical_line('label',5)
+
+# create graph
+p.do_graph
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* gnuplot binary
+* gnuplot gem
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* gem install scbi_plot
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2011 FIXME full name
+Copyright (c) 2011 Dario Guerrero
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

@@ -67,8 +67,8 @@ class TestScbiPlot < Test::Unit::TestCase
     p.add_x(x)
     # p.add_y(y)
     p.add_series('serie0', y)
-    p.add_series('serie1', y2)
-    p.add_series('serie2', y3)
+    p.add_series('serie1', y2, 'points')
+    p.add_series('serie2', y3,'impulses',4)
     
     p.add_vertical_line('pos',5)
     

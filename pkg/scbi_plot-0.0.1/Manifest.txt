@@ -10,3 +10,6 @@ script/generate
 test/test_helper.rb
 test/test_scbi_plot.rb
 lib/scbi_plot/plot.rb
+lib/scbi_plot/histogram.rb
+lib/scbi_plot/lines.rb
+lib/scbi_plot.rb

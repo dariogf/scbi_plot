@@ -57,6 +57,9 @@ module ScbiPlot
           plot.title "#{@title}"
           plot.xlabel @x_label
           plot.ylabel @y_label
+          plot.xrange "[#{@x.min}:#{@x.max}]"
+          plot.x2range "[#{@x.min}:#{@x.max}]"
+          # plot.x2range "auto"
 
           if !@show_leyend
             plot.set "key off" #leyend
@@ -76,7 +79,7 @@ module ScbiPlot
               x2ticks << "'#{v_line[:title]} (#{v_line[:x_value]})' #{v_line[:x_value]}"
             end
 
-            plot.set "x2tics (#{x2ticks.join(' ')})"
+            plot.set "x2tics (#{x2ticks.join(', ')})"
             plot.set 'grid noxtics x2tics lt rgb "green"'
           end
 
