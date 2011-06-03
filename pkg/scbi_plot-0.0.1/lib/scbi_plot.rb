@@ -7,5 +7,5 @@ require 'scbi_plot/lines'
 
 
 module ScbiPlot
-   VERSION = '0.0.4'
+   VERSION = '0.0.5'
 end

@@ -44,7 +44,7 @@ module ScbiPlot
 
     def do_graph
       setup_data
-      $VERBOSE=true
+      # $VERBOSE=true
 
       Gnuplot.open do |gp|
         # histogram
@@ -57,8 +57,19 @@ module ScbiPlot
           plot.title "#{@title}"
           plot.xlabel @x_label
           plot.ylabel @y_label
-          plot.xrange "[#{@x.min}:#{@x.max}]"
-          plot.x2range "[#{@x.min}:#{@x.max}]"
+          
+          if @x_range.empty?
+            plot.xrange "[#{@x.min}:#{@x.max}]"
+            plot.x2range "[#{@x.min}:#{@x.max}]"
+          else
+            plot.xrange @x_range
+            plot.x2range @x_range
+          end
+          
+          if !@y_range.empty?
+            plot.yrange @y_range
+          end
+          
           # plot.x2range "auto"
 
           if !@show_leyend

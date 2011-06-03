@@ -22,7 +22,7 @@ module ScbiPlot
 
   class Plot
 
-    attr_accessor :title,:file_name,:x_label,:y_label,:x_limit,:x, :y, :line_width
+    attr_accessor :title,:file_name,:x_label,:y_label,:x_limit,:x, :y, :line_width, :x_range, :y_range
 
     def initialize(file_name,title=nil)
 
@@ -30,6 +30,9 @@ module ScbiPlot
       @y=[]
       @x_label='x'
       @y_label='y'
+      
+      @x_range=''
+      @y_range=''
 
       @title=title
       @file_name=file_name
@@ -187,7 +190,9 @@ module ScbiPlot
 
           # save quoted values
           hash.keys.each do |v|
-            @x.push "\"#{v.gsub('\"','').gsub('\'','')}\""
+            # @x.push "\"#{v.gsub('\"','').gsub('\'','')}\""
+            @x.push "#{v.gsub('\"','').gsub('\'','')}"
+            # puts 
             @y.push hash[v.to_s]
           end
 

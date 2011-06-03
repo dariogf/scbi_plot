@@ -1,3 +1,7 @@
+=== 0.0.5 2011-06-03
+
+Added xrange and yrange support
+
 === 0.0.4 2011-05-31
 
 Fixed vertical lines

@@ -29,40 +29,40 @@ scbi_plot is a simplified wrapper to create plots with gnuplot.
 
 === Line plot:
 
-# Create lines plot
-p=ScbiPlot::Lines.new('lines.png','title')
+  # Create lines plot
+  p=ScbiPlot::Lines.new('lines.png','title')
 
-# create some random data
-x=[]
-y1=[]
-y2=[]
-y3=[]
+  # create some random data
+  x=[]
+  y1=[]
+  y2=[]
+  y3=[]
 
-10.times do |i|
-  x.push i*10
-  y1.push i+(rand*50).to_i
-  y2.push i+(rand*50).to_i
-  y3.push i+(rand*50).to_i
-end
+  10.times do |i|
+    x.push i*10
+    y1.push i+(rand*50).to_i
+    y2.push i+(rand*50).to_i
+    y3.push i+(rand*50).to_i
+  end
 
 
-# add x data
-p.add_x(x)
+  # add x data
+  p.add_x(x)
 
-# add a series
-p.add_series('serie0', y1)
+  # add a series
+  p.add_series('serie0', y1)
 
-# draw another series with points
-p.add_series('serie1', y2, 'points')
+  # draw another series with points
+  p.add_series('serie1', y2, 'points')
 
-# add a third series with impulses of width 4
-p.add_series('serie2', y3,'impulses',4)
+  # add a third series with impulses of width 4
+  p.add_series('serie2', y3,'impulses',4)
 
-# add a vertical line at pos 5
-p.add_vertical_line('label',5)
+  # add a vertical line at pos 5
+  p.add_vertical_line('label',5)
 
-# create graph
-p.do_graph
+  # create graph
+  p.do_graph
 
 == REQUIREMENTS:
 

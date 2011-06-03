@@ -63,12 +63,13 @@ class TestScbiPlot < Test::Unit::TestCase
       y2.push i+(rand*50).to_i
       y3.push i+(rand*50).to_i
     end
-    
+    p.x_range='[0:100]'
     p.add_x(x)
     # p.add_y(y)
     p.add_series('serie0', y)
     p.add_series('serie1', y2, 'points')
     p.add_series('serie2', y3,'impulses',4)
+    
     
     p.add_vertical_line('pos',5)
     
