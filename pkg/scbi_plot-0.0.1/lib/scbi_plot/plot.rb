@@ -23,6 +23,24 @@ module ScbiPlot
   class Plot
 
     attr_accessor :title,:file_name,:x_label,:y_label,:x_limit,:x, :y, :line_width, :x_range, :y_range
+    
+    # Cross-platform way of finding an executable in the $PATH.
+    #
+    #   which('ruby') #=> /usr/bin/ruby
+    def which(cmd)
+      exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+      ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+        exts.each { |ext|
+          exe = "#{path}/#{cmd}#{ext}"
+          return exe if File.executable? exe
+        }
+      end
+      return nil
+    end
+    
+    def gnu_plot_installed?
+      return which('gnuplot')
+    end
 
     def initialize(file_name,title=nil)
 

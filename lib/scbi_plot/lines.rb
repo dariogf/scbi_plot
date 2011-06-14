@@ -45,6 +45,10 @@ module ScbiPlot
     def do_graph
       setup_data
       # $VERBOSE=true
+      if !gnu_plot_installed?
+        puts "GNUPLOT executable not installed"
+        return
+      end
 
       Gnuplot.open do |gp|
         # histogram
